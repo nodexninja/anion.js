@@ -8,12 +8,12 @@ module.exports = {
   env: (json) => {
     fs.writeFileSync('database.json', json)
   },
-  secretAuth: () => {
-    const serviceAccount = require('./database.json')
+  auth: () => {
+    const serviceAccount = JSON.parse(fs.readFileSync('database.json'))
     initializeApp({
       credential: cert(serviceAccount)
     })
-    fs.writeFileSync('database.json', '')
+    fs.unlinkSync('database.json')
     module.exports.db = getFirestore()
   },
   write: (file, contents) => {
