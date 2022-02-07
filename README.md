@@ -8,10 +8,10 @@ Made by [nodexninja](https://github.com/nodexninja) for everyone!
 
 ## Quick Start
 ```js
-const { db, render } = require('./index')
+const { db, render } = require('anion.js')
 
 db.env(process.env['json'])
-db.secretAuth()
+db.auth()
 db.put('people', 'nodexninja', { name: 'Nodex Ninja' }) // Write to document
 db.use('people', 'nodexninja', (item) => {
   console.log(item.data()) // Read document

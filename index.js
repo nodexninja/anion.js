@@ -5,7 +5,7 @@ const fs = db.fs
 module.exports = {
   db: db,
   render: (html, data) => {
-    const file = fs.readFileSync('public/index.html', 'utf8')
+    const file = fs.readFileSync(html, 'utf8')
     Mustache.render(file, data)
   }
 }

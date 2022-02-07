@@ -11,4 +11,4 @@ const site = render('public/index.html', {
   title: 'Anion',
 })
 
-// console.log(site)
+console.log(site)
