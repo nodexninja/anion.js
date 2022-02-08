@@ -1,0 +1,36 @@
+{
+  "name": "anion.js",
+  "version": "2.0.0",
+  "description": "The Full-Stack JavaScript Framework!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodexninja/anion.js.git"
+  },
+  "keywords": [
+    "anion",
+    "firebase",
+    "database",
+    "framework"
+  ],
+  "author": "nodexninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodexninja/anion.js/issues"
+  },
+  "homepage": "https://github.com/nodexninja/anion.js#readme",
+  "devDependencies": {
+    "node": "^16.13.1"
+  },
+  "dependencies": {
+    "anion.js": "^1.0.0",
+    "express": "^4.17.2",
+    "firebase-admin": "^10.0.2",
+    "fs-extra": "^10.0.0",
+    "mustache": "^4.2.0"
+  }
+}
