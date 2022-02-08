@@ -10,7 +10,7 @@ Made by [nodexninja](https://github.com/nodexninja) for everyone!
 
 ### JavaScript
 ```js
-const { db, render, server, express } = require('./index')
+const { db, render, server, express } = require('anion')
 
 db.auth(process.env['json']) // Enter Firebase project details into an env
 db.put('people', 'nodexninja', { name: 'Nodex Ninja' }) // Write to document
