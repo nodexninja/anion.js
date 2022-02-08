@@ -5,10 +5,8 @@ const fs = require('fs')
 
 module.exports = {
   fs: fs,
-  env: (json) => {
+  auth: (json) => {
     fs.writeFileSync('database.json', json)
-  },
-  auth: () => {
     const serviceAccount = JSON.parse(fs.readFileSync('database.json'))
     initializeApp({
       credential: cert(serviceAccount)

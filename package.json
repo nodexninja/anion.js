@@ -1,6 +1,6 @@
 {
   "name": "anion.js",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "The Full-Stack JavaScript Framework!",
   "main": "index.js",
   "scripts": {
@@ -23,9 +23,14 @@
     "url": "https://github.com/nodexninja/anion.js/issues"
   },
   "homepage": "https://github.com/nodexninja/anion.js#readme",
+  "devDependencies": {
+    "node": "^16.13.1"
+  },
   "dependencies": {
     "anion.js": "^1.0.0",
+    "express": "^4.17.2",
     "firebase-admin": "^10.0.2",
+    "fs-extra": "^10.0.0",
     "mustache": "^4.2.0"
   }
 }
