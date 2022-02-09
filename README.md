@@ -1,16 +1,27 @@
 # Anion
-Anion is a Full-Stack Web Development Node.js framework that utilises [Firebase](https://firebase.google.com) to create a website with backend features. Anion is a [Replit](https://repl.it) friendly framework for developers who want to use it online!
+Anion is a Full-Stack Web Development Node.js framework that utilises [Express](https://github.com/expressjs) and [Firebase](https://firebase.google.com) to create a website with backend features. Anion is a [Replit](https://repl.it) friendly framework for developers who want to use it online!
 
 Made by [nodexninja](https://github.com/nodexninja) for everyone!
+
+## Features
+- Easy Firestore database connection 
+- Simple Express server setup 
+- HTML/CSS/JS rendering with Templates `{{ data }}`
+- OTF and TTF font file support
 
 ## Installation
 `npm install anion.js`
 
 ## Quick Start
 
+### Folder Structure
+It's pretty simple. You should have a folder containing your static files. Subfolders are optional for CSS + fonts and JS. You can direct anion to your styles and scripts in the render function. 
+
+![Image for Folder Structure](folder.png)
+
 ### JavaScript
 ```js
-const { db, render, server, express } = require('anion')
+const { db, render, server, express } = require('anion.js')
 
 db.auth(process.env['json']) // Enter Firebase project details into an env
 db.put('people', 'nodexninja', { name: 'Nodex Ninja' }) // Write to document
@@ -19,10 +30,10 @@ db.use('people', 'nodexninja', (item) => {
 })
 
 const site = render('public/index.html', {
-  css: 'css', // path for CSS
-  js: 'js' // path for JS
+  css: 'css', // subfolder for CSS, use * for the static folder (public)
+  js: 'js' // subfolder for JS, use * for the static folder (public)
 }, {
-  title: 'Anion',
+  title: 'Anion', // Template variable
 })
 
 server.use(express.static('anion'))
@@ -69,5 +80,8 @@ server.listen(3000)
 
 ## Coming Soon
 - Front-end Templating
-- OTF Rendering
-- TTF Rendering
+- JSON Templating
+
+
+## Mechanics
+Anion basically renders your static files into a folder called `anion` which can be used to render your HTML Template in Express. You can display your Firebase data on your HTML Templates by using Anion.js today!
