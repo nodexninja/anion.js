@@ -1,6 +1,6 @@
 {
   "name": "anion.js",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "The Full-Stack JavaScript Framework!",
   "main": "index.js",
   "scripts": {

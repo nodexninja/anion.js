@@ -25,6 +25,10 @@ module.exports = {
     let css = {
       files: [],
     }
+    let fonts = {
+      otfs: [],
+      ttfs: [],
+    }
     let js = {
       files: [],
     }
@@ -32,8 +36,12 @@ module.exports = {
       if (typeof config.css === 'string') {
         if (config.css === '*') {
           css.files = fs.readdirSync(`${path}`).filter(file => file.endsWith('.css'))
+          fonts.otfs = fs.readdirSync(`${path}`).filter(file => file.endsWith('.otf'))
+          fonts.ttfs = fs.readdirSync(`${path}${config.css}`).filter(file => file.endsWith('.ttf'))
         } else {
           css.files = fs.readdirSync(`${path}${config.css}`).filter(file => file.endsWith('.css'))
+          fonts.otfs = fs.readdirSync(`${path}${config.css}`).filter(file => file.endsWith('.otf'))
+          fonts.ttfs = fs.readdirSync(`${path}${config.css}`).filter(file => file.endsWith('.ttf'))
         }
         if (!fs.existsSync(`anion/${config.css}`)) {
           fs.mkdirSync(`anion/${config.css}/`)
@@ -42,8 +50,16 @@ module.exports = {
           const styling = fs.readFileSync(`${path}${config.css}/${css}`)
           fs.writeFileSync(`anion/${config.css}/${css}`, styling)
         }
+        for (otf of fonts.otfs) {
+          const font = fs.readFileSync(`${path}${config.css}/${otf}`)
+          fs.writeFileSync(`anion/${config.css}/${otf}`, font)
+        }
+        for (ttf of fonts.ttfs) {
+          const font = fs.readFileSync(`${path}${config.css}/${ttf}`)
+          fs.writeFileSync(`anion/${config.css}/${ttf}`, font)
+        }
       } else {
-        console.log('Invalid CSS config. CSS config must be a string!')
+        console.log('Invalid CSS config. CSS config must be a string!\nThe CSS config also indicates the location of your FONTS!')
       }
       if (typeof config.js === 'string') {
         if (config.js === '*') {
